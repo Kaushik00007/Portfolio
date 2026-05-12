@@ -1,6 +1,6 @@
-# 🎨 Prashant Koirala Web Development Portfolio - Complete Documentation
+# 🎨 Kaushik K Portfolio - Complete Documentation
 
-Welcome to the comprehensive documentation for Prashant Koirala's Portfolio - a cutting-edge, award-worthy web development portfolio that showcases the intersection of stunning design and robust development. This project represents a masterclass in modern web development, featuring seamless animations, responsive design, and an immersive user experience that draws inspiration from Awwwards-winning websites.
+Welcome to the comprehensive documentation for Kaushik K's Portfolio - a cutting-edge, award-worthy web development portfolio that showcases the intersection of stunning design and robust development. This project represents a masterclass in modern web development, featuring seamless animations, responsive design, and an immersive user experience that draws inspiration from Awwwards-winning websites.
 
 ## 📋 Table of Contents
 - [Project Overview](#project-overview)
@@ -32,9 +32,9 @@ This portfolio is more than just a personal website - it's a carefully crafted d
 The portfolio serves as both a personal showcase and a testament to modern web development capabilities, featuring smooth animations, engaging interactions, and a cohesive visual identity throughout.
 
 ## 🚀 Live Demo
-🌐 [View Live Portfolio](https://web-development-portfolio-blond.vercel.app/)
+🌐 [View Live Portfolio](https://github.com/Kaushik00007/Portfolio)
 
-Experience the portfolio in its full glory with all animations and interactions. The live version is deployed on Vercel with global CDN distribution for optimal performance worldwide.
+Experience the portfolio in its full glory with all animations and interactions.
 
 ## ✨ Features
 
@@ -90,7 +90,6 @@ Experience the portfolio in its full glory with all animations and interactions.
 ### Deployment & Hosting
 - **Vercel**: Global edge network deployment
 - **GitHub**: Version control and collaboration
-- **Custom Domain**: Professional domain with SSL certificate
 
 ## 📁 Project Structure
 ```
@@ -120,7 +119,7 @@ portfolio/
 ### Local Development Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/prashantkoirala465/portfolio.git
+   git clone https://github.com/Kaushik00007/Portfolio.git
    ```
 
 2. Install dependencies:
@@ -344,17 +343,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 ### Project Author
-**Prashant Koirala**
-- Portfolio: [prashantkoirala.info.np](https://prashantkoirala.info.np)
-- Email: prashantkoirala465@gmail.com
-- GitHub: [@prashantkoirala465](https://github.com/prashantkoirala465)
-- LinkedIn: [Prashant Koirala](https://linkedin.com/in/prashantkoirala)
-- Twitter: [@arkynox_](https://twitter.com/arkynox_)
+**Kaushik K**
+- Email: kaushi00007@gmail.com
+- GitHub: [@Kaushik00007](https://github.com/Kaushik00007)
+- LinkedIn: [Kaushik K](https://linkedin.com/in/kaushik-k-dev)
 
 ### Support Channels
-- **Issues**: [GitHub Issues](https://github.com/prashantkoirala465/portfolio/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/prashantkoirala465/portfolio/discussions)
-- **Email**: Direct email for urgent inquiries
+- **Issues**: [GitHub Issues](https://github.com/Kaushik00007/Portfolio/issues)
 
 ### Professional Services
 Available for:
@@ -388,4 +383,4 @@ Available for:
 
 ⭐ **If this portfolio inspires you, please give it a star on GitHub!**
 
-Built with ❤️ by Prashant Koirala
+Built with ❤️ by Kaushik K
