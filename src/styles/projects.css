@@ -43,7 +43,7 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2.5em;
   width: 100%;
   max-width: 1400px;
@@ -68,7 +68,6 @@
 .project-card-image-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
   border-bottom: 0.15em solid var(--fg);
   overflow: hidden;
   background-color: var(--bg2);
@@ -76,13 +75,13 @@
 
 .project-card-image {
   width: 100%;
-  height: 100%;
+  display: flex;
 }
 
 .project-card-image img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   transition: transform 0.5s ease;
 }
 
