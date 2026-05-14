@@ -222,6 +222,54 @@
     gap: 2em;
   }
   
+  .services .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1.5em;
+    width: 100%;
+  }
+  
+  .services .skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75em;
+    padding: 1em;
+    border-radius: 1em;
+    background: rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .services #service-card-4 .skill-item,
+  .services #service-card-5 .skill-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .services .skill-item:hover {
+    transform: translateY(-5px);
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  .services #service-card-4 .skill-item:hover,
+  .services #service-card-5 .skill-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .services .skill-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    filter: grayscale(100%) brightness(0);
+    opacity: 0.8;
+  }
+
+  .services #service-card-4 .skill-icon,
+  .services #service-card-5 .skill-icon {
+    filter: grayscale(100%) brightness(0) invert(1);
+  }
+  
   .services .service-card-img {
     flex: 1;
     aspect-ratio: 4/5;
@@ -242,6 +290,11 @@
   }
   
   .services #service-card-4 .service-card-inner {
+    background-color: var(--accent4);
+    color: var(--bg);
+  }
+
+  .services #service-card-5 .service-card-inner {
     background-color: var(--fg);
     color: var(--bg);
   }
