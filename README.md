@@ -1,4 +1,4 @@
-# 🎨 Kaushik K Portfolio - Complete Documentation
+# 🎨 Kaushik K Web Development Portfolio - Complete Documentation
 
 Welcome to the comprehensive documentation for Kaushik K's Portfolio - a cutting-edge, award-worthy web development portfolio that showcases the intersection of stunning design and robust development. This project represents a masterclass in modern web development, featuring seamless animations, responsive design, and an immersive user experience that draws inspiration from Awwwards-winning websites.
 

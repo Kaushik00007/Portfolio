@@ -7,6 +7,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "index.html"),
         contact: resolve(__dirname, "src/contact/contact.html"),
+        projects: resolve(__dirname, "src/projects/projects.html"),
       },
     },
     assetsInclude: [

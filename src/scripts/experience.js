@@ -78,50 +78,50 @@ document.addEventListener("DOMContentLoaded", () => {
 
     btn.addEventListener("click", () => {
       const logo = aside.querySelector(".experience-card-logo");
-      
+
       const isShowingCert = btn.innerText.toUpperCase().includes("BACK");
-      
+
       if (!isShowingCert) {
         // Swipe UP animation
-        gsap.to(logo, { 
-          y: -150, 
-          opacity: 0, 
+        gsap.to(logo, {
+          y: -150,
+          opacity: 0,
           scale: 0.9,
-          duration: 0.6, 
-          ease: "power2.inOut" 
+          duration: 0.6,
+          ease: "power2.inOut"
         });
-        
-        gsap.fromTo(cert, 
+
+        gsap.fromTo(cert,
           { yPercent: 50, opacity: 0, scale: 0.9 },
-          { 
-            yPercent: -50, 
-            opacity: 1, 
-            scale: 1, 
+          {
+            yPercent: -50,
+            opacity: 1,
+            scale: 1,
             xPercent: -50,
-            duration: 0.6, 
-            ease: "power2.inOut", 
-            pointerEvents: "all" 
+            duration: 0.6,
+            ease: "power2.inOut",
+            pointerEvents: "all"
           }
         );
         btn.innerText = "BACK TO LOGO";
       } else {
         // Swipe DOWN animation back
-        gsap.to(logo, { 
-          y: 0, 
-          opacity: 1, 
+        gsap.to(logo, {
+          y: 0,
+          opacity: 1,
           scale: 1,
-          duration: 0.6, 
-          ease: "power2.inOut" 
+          duration: 0.6,
+          ease: "power2.inOut"
         });
-        
-        gsap.to(cert, { 
-          yPercent: 50, 
-          opacity: 0, 
+
+        gsap.to(cert, {
+          yPercent: 50,
+          opacity: 0,
           scale: 0.9,
           xPercent: -50,
-          duration: 0.6, 
-          ease: "power2.inOut", 
-          pointerEvents: "none" 
+          duration: 0.6,
+          ease: "power2.inOut",
+          pointerEvents: "none"
         });
         btn.innerText = "VIEW CERTIFICATE";
       }
