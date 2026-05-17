@@ -644,4 +644,245 @@
       height: 150px;
     }
   }
+
+/* ==========================================
+   RESUME WINDOW MODAL
+   ========================================== */
+
+/* The outer modal container */
+.resume-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none; /* Initially pointer events are none */
+  visibility: hidden;
+}
+
+.resume-modal.active {
+  pointer-events: all;
+  visibility: visible;
+}
+
+/* Semi-transparent retro blurred backdrop overlay */
+.resume-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(42, 36, 32, 0.4); /* Muted var(--fg) color */
+  backdrop-filter: blur(10px);
+}
+
+/* The window itself */
+.resume-window {
+  position: relative;
+  width: 90vw;
+  max-width: 900px;
+  height: 85vh;
+  max-height: 800px;
+  background-color: var(--bg);
+  border: 0.4em solid var(--fg);
+  border-radius: 1.5em;
+  box-shadow: 16px 16px 0px var(--fg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 10;
+  will-change: transform, opacity;
+}
+
+/* Window Header */
+.resume-window-header {
+  height: 4.5rem;
+  background-color: var(--fg);
+  border-bottom: 0.3em solid var(--fg);
+  padding: 0 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--bg);
+  user-select: none;
+}
+
+.resume-window-header .header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+}
+
+.resume-window-header .window-icon {
+  font-size: 1.5rem;
+}
+
+.resume-window-header .window-title {
+  color: var(--accent3); /* Gold/Beige */
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.05em;
+}
+
+.resume-window-header .window-close-btn {
+  background-color: var(--accent1); /* Orange */
+  color: var(--bg);
+  border: 0.2em solid var(--fg);
+  border-radius: 0.4em;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+  box-shadow: 2px 2px 0px var(--fg);
+}
+
+.resume-window-header .window-close-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px var(--fg);
+  background-color: #ff4d4d; /* Bright red hover */
+}
+
+.resume-window-header .window-close-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px var(--fg);
+}
+
+/* Toolbar / Action Bar */
+.resume-window-toolbar {
+  height: 3.5rem;
+  background-color: var(--bg2);
+  border-bottom: 0.3em solid var(--fg);
+  display: flex;
+  align-items: center;
+  padding: 0 1em;
+  gap: 1em;
+}
+
+.resume-window-toolbar .toolbar-btn {
+  background-color: var(--bg);
+  color: var(--fg);
+  border: 0.2em solid var(--fg);
+  border-radius: 0.5em;
+  padding: 0.4em 1em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px var(--fg);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+}
+
+/* Premium gradient hover with stripes for action buttons */
+.resume-window-toolbar .toolbar-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px var(--fg);
+  background: linear-gradient(
+    45deg,
+    var(--accent1),
+    var(--accent3)
+  );
+  color: var(--fg);
+}
+
+.resume-window-toolbar .toolbar-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px var(--fg);
+}
+
+.resume-window-toolbar .toolbar-btn .btn-icon {
+  font-size: 1rem;
+}
+
+/* Window Viewer Container */
+.resume-window-viewer {
+  flex: 1;
+  background-color: var(--accent4); /* Elegant dark canvas background */
+  position: relative;
+  overflow: hidden;
+  padding: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resume-window-viewer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.02) 0px,
+    rgba(255, 255, 255, 0.02) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  pointer-events: none;
+}
+
+.resume-window-viewer iframe {
+  width: 100%;
+  height: 100%;
+  border: 0.25em solid var(--fg);
+  border-radius: 0.8em;
+  background-color: #ffffff;
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Scaling for the modal window */
+@media (max-width: 768px) {
+  .resume-window {
+    width: 95vw;
+    height: 90vh;
+    border-width: 0.3em;
+    box-shadow: 8px 8px 0px var(--fg);
+  }
+  
+  .resume-window-header {
+    height: 3.5rem;
+    padding: 0 1em;
+  }
+
+  .resume-window-header .window-title {
+    font-size: 1rem;
+  }
+  
+  .resume-window-toolbar {
+    height: auto;
+    padding: 0.75em;
+    flex-wrap: wrap;
+    gap: 0.5em;
+  }
+
+  .resume-window-toolbar .toolbar-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 0.5em;
+    font-size: 0.7rem;
+  }
+
+  .resume-window-viewer {
+    padding: 0.75em;
+  }
+  
+  .resume-window-viewer iframe {
+    border-width: 0.2em;
+    border-radius: 0.5em;
+  }
+}
+
   
