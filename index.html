@@ -597,6 +597,42 @@
 
 
     </div>
+
+    <!-- Resume Modal Window -->
+    <div id="resume-modal" class="resume-modal">
+      <div class="resume-modal-overlay"></div>
+      <div class="resume-window">
+        <!-- Window Header -->
+        <div class="resume-window-header">
+          <div class="header-left">
+            <span class="window-icon">📄</span>
+            <span class="window-title mn">My Resume</span>
+          </div>
+          <div class="header-right">
+            <button id="resume-close-btn" class="window-close-btn" aria-label="Close Resume">&times;</button>
+          </div>
+        </div>
+
+        <!-- Window Toolbar/Action Bar -->
+        <div class="resume-window-toolbar">
+          <a href="https://drive.google.com/file/d/18RDvPNRmRqwlFJi4GnbVI1OS4SxPpkm3/view?usp=sharing" class="toolbar-btn mn" target="_blank" download>
+            <span class="btn-icon">💾</span> Save
+          </a>
+          <button id="resume-print-btn" class="toolbar-btn mn">
+            <span class="btn-icon">🖨️</span> Print
+          </button>
+          <a href="/src/contact/contact.html" class="toolbar-btn mn" id="resume-contact-btn">
+            <span class="btn-icon">✉️</span> Contact
+          </a>
+        </div>
+
+        <!-- Window Viewer Container -->
+        <div class="resume-window-viewer">
+          <iframe id="resume-iframe" src="about:blank" data-src="https://drive.google.com/file/d/1lhunYlVGdRqDiOsPf6xECVWj0x6tDbzR/preview" width="100%" height="100%" frameborder="0" allow="autoplay"></iframe>
+        </div>
+      </div>
+    </div>
+
     <script type="module" src="/src/scripts/transition.js"></script>
     <script type="module" src="/src/scripts/lenis-scroll.js"></script>
     <script type="module" src="/src/scripts/menu.js"></script>
