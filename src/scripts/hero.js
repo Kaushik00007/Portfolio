@@ -59,4 +59,102 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", () => {
     initAnimations();
   });
+
+  // ==========================================
+  // Resume Modal Window Controller
+  // ==========================================
+  const resumeLink = document.querySelector(".resume-link");
+  const resumeModal = document.getElementById("resume-modal");
+  const resumeCloseBtn = document.getElementById("resume-close-btn");
+  const resumeIframe = document.getElementById("resume-iframe");
+
+  if (resumeLink && resumeModal && resumeCloseBtn && resumeIframe) {
+    // Intercept clicking the resume link
+    resumeLink.addEventListener("click", (e) => {
+      e.preventDefault(); // Prevent navigating away to Google Drive
+
+      // Lazy-load resume PDF preview in the iframe if not already loaded
+      if (resumeIframe.src === "about:blank" || !resumeIframe.src) {
+        const src = resumeIframe.getAttribute("data-src");
+        resumeIframe.src = src;
+      }
+
+      // Lock scrolling using global Lenis instance
+      if (window.lenis) {
+        window.lenis.stop();
+      }
+
+      // Activate the modal window
+      resumeModal.classList.add("active");
+
+      // Set initial states for elements
+      gsap.set(".resume-modal-overlay", { opacity: 0 });
+      gsap.set(".resume-window", {
+        opacity: 0,
+        scale: 0.3,
+        rotation: -15,
+        y: 200
+      });
+
+      // Animate the background blur/overlay fade
+      gsap.to(".resume-modal-overlay", {
+        opacity: 1,
+        duration: 0.4,
+        ease: "power2.out"
+      });
+
+      // Animate the window opening: rotates, scales, and bounces slightly into place
+      gsap.to(".resume-window", {
+        opacity: 1,
+        scale: 1,
+        rotation: 0,
+        y: 0,
+        duration: 0.8,
+        ease: "back.out(1.2)"
+      });
+    });
+
+    // Close Modal handler with premium reverse animations
+    const closeResumeModal = () => {
+      // Unlock scrolling
+      if (window.lenis) {
+        window.lenis.start();
+      }
+
+      // Animate window sliding/scaling out
+      gsap.to(".resume-window", {
+        opacity: 0,
+        scale: 0.3,
+        rotation: 15,
+        y: 200,
+        duration: 0.6,
+        ease: "power2.in",
+        onComplete: () => {
+          resumeModal.classList.remove("active");
+        }
+      });
+
+      // Animate backdrop overlay fading out
+      gsap.to(".resume-modal-overlay", {
+        opacity: 0,
+        duration: 0.4,
+        ease: "power2.in"
+      });
+    };
+
+    // Bind close events
+    resumeCloseBtn.addEventListener("click", closeResumeModal);
+
+    const overlay = document.querySelector(".resume-modal-overlay");
+    if (overlay) {
+      overlay.addEventListener("click", closeResumeModal);
+    }
+
+    // Close on Escape keypress
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && resumeModal.classList.contains("active")) {
+        closeResumeModal();
+      }
+    });
+  }
 });
