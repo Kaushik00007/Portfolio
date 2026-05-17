@@ -67,16 +67,39 @@ document.addEventListener("DOMContentLoaded", () => {
   const resumeModal = document.getElementById("resume-modal");
   const resumeCloseBtn = document.getElementById("resume-close-btn");
   const resumeIframe = document.getElementById("resume-iframe");
+  const resumeSaveBtn = document.getElementById("resume-save-btn");
+  const resumePrintBtn = document.getElementById("resume-print-btn");
 
   if (resumeLink && resumeModal && resumeCloseBtn && resumeIframe) {
+    // Extract Google Drive File ID dynamically from the primary resume-link
+    const getDriveId = (url) => {
+      const match = url.match(/\/d\/([a-zA-Z0-9_-]+)/) || url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+      return match ? match[1] : null;
+    };
+
+    const driveId = getDriveId(resumeLink.getAttribute("href"));
+
     // Intercept clicking the resume link
     resumeLink.addEventListener("click", (e) => {
       e.preventDefault(); // Prevent navigating away to Google Drive
 
-      // Lazy-load resume PDF preview in the iframe if not already loaded
-      if (resumeIframe.src === "about:blank" || !resumeIframe.src) {
-        const src = resumeIframe.getAttribute("data-src");
-        resumeIframe.src = src;
+      if (driveId) {
+        // Dynamic lazy loading for iframe
+        if (resumeIframe.src === "about:blank" || !resumeIframe.src) {
+          resumeIframe.src = `https://drive.google.com/file/d/${driveId}/preview`;
+        }
+
+        // Dynamic link for Save/Download button
+        if (resumeSaveBtn) {
+          resumeSaveBtn.href = `https://drive.google.com/uc?export=download&id=${driveId}`;
+        }
+
+        // Dynamic behavior for Print button (opens native viewer in separate tab for perfect print)
+        if (resumePrintBtn) {
+          resumePrintBtn.onclick = () => {
+            window.open(`https://drive.google.com/file/d/${driveId}/preview`, "_blank");
+          };
+        }
       }
 
       // Lock scrolling using global Lenis instance
