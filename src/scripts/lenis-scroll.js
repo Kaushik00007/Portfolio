@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize Lenis with selected scroll settings
   let lenis = new Lenis(scrollSettings);
+  window.lenis = lenis;
 
   // Update ScrollTrigger on Lenis scroll events
   lenis.on("scroll", ScrollTrigger.update);
@@ -101,6 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Create new Lenis instance with updated settings
       lenis = new Lenis(newScrollSettings);
+      window.lenis = lenis;
       lenis.on("scroll", ScrollTrigger.update); // Rebind ScrollTrigger update
     }
   };
